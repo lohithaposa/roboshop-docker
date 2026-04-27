@@ -26,6 +26,14 @@ services:
    depends_on: 
     - redis
 
+  mysql:
+   build:
+     context: ./mysql
+     dockerfile: Dockerfile
+   image: dock944/mysql0.0
+   container_name: mysql
+
+
 
   frontend:
    build:
