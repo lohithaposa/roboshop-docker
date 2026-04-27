@@ -17,6 +17,16 @@ services:
    depends_on: 
     - redis
 
+  cart:
+   build:
+     context: ./cart
+     dockerfile: Dockerfile
+   image: dock944/cart:1.0.0
+   container_name: cart
+   depends_on: 
+    - redis
+
+
   frontend:
    build:
      context: ./frontend
@@ -28,6 +38,7 @@ services:
    depends_on: 
     - catalogue
     - user
+    - cart
 
 
 
