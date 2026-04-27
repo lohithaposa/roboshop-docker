@@ -1,25 +1,21 @@
 services:
   catalogue:
-    build: 
+    build:
       context: ./catalogue
-      dockerfile: catalogue.Dockerfile 
-    image: catalogue:1.0.0  #its equals to docker build -t docks944/mongodb:1.0.0 
+      dockerfile: Dockerfile
+    image: dock944/catalogue:1.0.0
     container_name: catalogue
-    depends_on: 
-    - mongodb
-
+    depends_on:
+      - mongodb
 
   mongodb:
-    build: 
+    build:
       context: ./mongodb
-      dockerfile: mongodb.Dockerfile
-    image: mongodb:1.0.0
+      dockerfile: Dockerfile
+    image: dock944/mongodb:1.0.0
     container_name: mongodb
-    
-    
+
 networks:
   default:
     driver: bridge
     name: roboshop
-    external: false #if true need to create network manually,false means it will create automatically
-          
