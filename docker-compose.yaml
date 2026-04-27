@@ -8,12 +8,36 @@ services:
     depends_on:
       - mongodb
 
+  user:
+   build:
+     context: ./user
+     dockerfile: Dockerfile
+   image: dock944/user:1.0.0
+   container_name: user
+   depends_on: 
+    - redis
+
+  frontend:
+   build:
+     context: ./frontend
+     dockerfile: Dockerfile
+   image: dock944/frontend:1.0.0
+   container_name: frontend
+   depends_on: 
+    - catalogue
+    - user
+
+
   mongodb:
     build:
       context: ./mongodb
       dockerfile: Dockerfile
     image: dock944/mongodb:1.0.0
     container_name: mongodb
+
+  redis:
+    image: redis:7.0
+    container_name: redis 
 
 networks:
   default:
