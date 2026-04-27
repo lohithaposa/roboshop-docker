@@ -35,12 +35,13 @@ services:
 
   shipping:
    build:
-     context: ./shipping
+     context: ./shipping 
      dockerfile: Dockerfile
-   image: dock944/shipping
+   image: dock944/shipping1.0.0
    container_name: shipping
    depends_on:
     - mysql
+
 
 
 
