@@ -33,6 +33,15 @@ services:
    image: dock944/mysql1.0.0
    container_name: mysql
 
+  shipping:
+   build:
+     context: ./shipping
+     dockerfile: Dockerfile
+   image: dock944/shipping
+   container_name: shipping
+   depends_on:
+    - mysql
+
 
 
   frontend:
@@ -47,6 +56,7 @@ services:
     - catalogue
     - user
     - cart
+    - shipping
 
 
 
