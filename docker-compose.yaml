@@ -30,7 +30,7 @@ services:
    build:
      context: ./mysql
      dockerfile: Dockerfile
-   image: dock944/mysql 1.0.0
+   image: dock944/mysql1.0.0
    container_name: mysql
 
 
