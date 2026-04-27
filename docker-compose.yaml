@@ -73,6 +73,13 @@ services:
     image: redis:7.0
     container_name: redis 
 
+  rabbitmq:
+    image: rabbitmq:3
+    environment: 
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+    container_name: rabbitmq
+
 networks:
   default:
     driver: bridge
