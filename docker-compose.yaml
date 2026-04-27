@@ -1,7 +1,7 @@
 services:
   catalogue:
     build: 
-      #context: ./catalogue
+      context: ./catalogue
       dockerfile: catalogue/Dockerfile 
     image: dock944/catalogue:1.0.0  #its equals to docker build -t docks944/mongodb:1.0.0 
     container_name: catalogue
@@ -11,7 +11,7 @@ services:
 
   mongodb:
     build: 
-      #context: ./mogodb
+      context: ./mogodb
       dockerfile: mongodb/Dockerfile
     image: dock944/mongodb:1.0.0
     container_name: mongodb
