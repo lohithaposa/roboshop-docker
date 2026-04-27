@@ -9,35 +9,36 @@ services:
       - mongodb
 
   user:
-   build:
-     context: ./user
-     dockerfile: Dockerfile
-   image: dock944/user:1.0.0
-   container_name: user
-   depends_on: 
-    - redis
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    image: dock944/user:1.0.0
+    container_name: user
+    depends_on:
+      - redis
+
 
   cart:
-   build:
-     context: ./cart
-     dockerfile: Dockerfile
-   image: dock944/cart:1.0.0
-   container_name: cart
-   depends_on: 
-    - redis
+    build:
+      context: ./cart
+      dockerfile: Dockerfile
+    image: dock944/cart:1.0.0
+    container_name: cart
+    depends_on:
+      - redis
 
   mysql:
    build:
      context: ./mysql
      dockerfile: Dockerfile
-   image: dock944/mysql1.0.0
+   image: dock944/mysql:1.0.0
    container_name: mysql
 
   shipping:
    build:
      context: ./shipping 
      dockerfile: Dockerfile
-   image: dock944/shipping1.0.0
+   image: dock944/shipping:1.0.0
    container_name: shipping
    depends_on:
     - mysql
